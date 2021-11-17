@@ -4,6 +4,10 @@ public class Rental {
 	public static final int VHS_RENTAL_DAYS_LIMIT = 5;
 	public static final int CD_RENTAL_DAYS_LIMIT = 3;
 	public static final int DVD_RENTAL_DAYS_LIMIT = 2;
+
+	public static final int STATUS_RENTED = 0;
+	public static final int STATUS_RETURNED = 1;
+
 	private Video video ;
 	private int status ; // 0 for Rented, 1 for Returned
 	private Date rentDate ;
@@ -28,8 +32,8 @@ public class Rental {
 	}
 
 	public void returnVideo() {
-		if ( status == 0 ) {
-			this.status = 1;
+		if ( status == STATUS_RENTED ) {
+			this.status = STATUS_RETURNED;
 			returnDate = new Date() ;
 			video.setRented(false);
 		}
@@ -47,7 +51,7 @@ public class Rental {
 		int limit = 0 ;
 		int daysRented ;
 		long diff;
-		if (getStatus() == 1) { // returned Video
+		if (getStatus() == STATUS_RETURNED) { // returned Video
 			diff = returnDate.getTime() - rentDate.getTime();
 		} else { // not yet returned
 			diff = new Date().getTime() - rentDate.getTime();
