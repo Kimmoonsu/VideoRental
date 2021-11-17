@@ -51,7 +51,7 @@ public class Customer {
 				daysRented = (int) (diff / (1000 * 60 * 60 * 24)) + 1;
 			}
 
-			switch (each.getVideo().getPriceCode()) {
+			switch (each.getPriceCode()) {
 			case Video.REGULAR:
 				eachCharge += 2;
 				if (daysRented > 2)
@@ -64,13 +64,13 @@ public class Customer {
 
 			eachPoint++;
 
-			if ((each.getVideo().getPriceCode() == Video.NEW_RELEASE) )
+			if ((each.getPriceCode() == Video.NEW_RELEASE) )
 				eachPoint++;
 
 			if ( daysRented > each.getDaysRentedLimit() )
-				eachPoint -= Math.min(eachPoint, each.getVideo().getLateReturnPointPenalty()) ;
+				eachPoint -= Math.min(eachPoint, each.getLateReturnPointPenalty()) ;
 
-			result += "\t" + each.getVideo().getTitle() + "\tDays rented: " + daysRented + "\tCharge: " + eachCharge
+			result += "\t" + each.getTitle() + "\tDays rented: " + daysRented + "\tCharge: " + eachCharge
 					+ "\tPoint: " + eachPoint + "\n";
 
 			totalCharge += eachCharge;

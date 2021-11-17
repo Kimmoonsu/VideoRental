@@ -55,15 +55,33 @@ public class Rental {
 		daysRented = (int) (diff / (1000 * 60 * 60 * 24)) + 1;
 		if ( daysRented <= 2) return limit ;
 
-		switch ( video.getVideoType() ) {
-			case Video.VHS: limit = VHS_RENTAL_DAYS_LIMIT; break ;
-			case Video.CD: limit = CD_RENTAL_DAYS_LIMIT; break ;
-			case Video.DVD: limit = DVD_RENTAL_DAYS_LIMIT; break ;
+		switch (video.getVideoType()) {
+			case Video.VHS:
+				limit = VHS_RENTAL_DAYS_LIMIT;
+				break;
+			case Video.CD:
+				limit = CD_RENTAL_DAYS_LIMIT;
+				break;
+			case Video.DVD:
+				limit = DVD_RENTAL_DAYS_LIMIT;
+				break;
 		}
-		return limit ;
+		return limit;
 	}
 
 	public boolean hasVideo(String videoTitle) {
 		return videoTitle.equals(video.getTitle());
+	}
+
+	public int getPriceCode() {
+		return video.getPriceCode();
+	}
+
+	public int getLateReturnPointPenalty() {
+		return video.getLateReturnPointPenalty();
+	}
+
+	public String getTitle() {
+		return video.getTitle();
 	}
 }
