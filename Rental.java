@@ -29,12 +29,13 @@ public class Rental {
 	}
 
 	public void returnVideo() {
-		if ( status == 1 ) {
+		if ( status == 0 ) {
 			this.status = 1;
 			returnDate = new Date() ;
 			video.setRented(false);
 		}
 	}
+
 	public Date getRentDate() {
 		return rentDate;
 	}
