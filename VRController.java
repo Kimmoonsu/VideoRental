@@ -67,14 +67,14 @@ public class VRController {
             System.out.println("No customer found");
             return;
         }
-        String result = foundCustomer.getReport();
+        String result = CustomerReporter.getReport(foundCustomer);
         System.out.println(result);
     }
 
     void rentVideo(Customer foundCustomer, String videoTitle) {
         Video foundVideo = null;
         for (Video video : videos) {
-            if (video.getTitle().equals(videoTitle) && video.isRented() == false) {
+            if (video.getTitle().equals(videoTitle) && !video.isRented()) {
                 foundVideo = video;
                 break;
             }
