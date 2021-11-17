@@ -31,11 +31,6 @@ public class Customer {
 		rentals.add(rental);
 
 	}
-	//지응 보입니다.
-	//보입니다 GOOD!!!! - 준희
-	// 보이
-	// 시나요?? ㅎㅎ
-	// 지언 입장완료
 
 	public String getReport() {
 		String result = "Customer Report for " + getName() + "\n";
