@@ -11,13 +11,17 @@ public class Rental {
 		status = 0 ;
 		rentDate = new Date() ;
 	}
-
+	
 	public Video getVideo() {
 		return video;
 	}
 
 	public void setVideo(Video video) {
 		this.video = video;
+	}
+
+	public boolean isRented() {
+		return video.isRented();
 	}
 
 	public int getStatus() {
@@ -28,6 +32,7 @@ public class Rental {
 		if ( status == 1 ) {
 			this.status = 1;
 			returnDate = new Date() ;
+			video.setRented(false);
 		}
 	}
 	public Date getRentDate() {
@@ -64,5 +69,9 @@ public class Rental {
 			case Video.DVD: limit = 2 ; break ;
 		}
 		return limit ;
+	}
+
+	public boolean hasVideo(String videoTitle) {
+		return videoTitle.equals(video.getTitle());
 	}
 }

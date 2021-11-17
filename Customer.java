@@ -21,7 +21,7 @@ public class Customer {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public List<Rental> getRentals() {
 		return Collections.unmodifiableList(rentals);
 	}
