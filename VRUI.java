@@ -51,8 +51,7 @@ public class VRUI {
 			System.out.print("\tPrice Code: " + rental.getVideo().getPriceCode());
 		}
 
-		List<Rental> rentals = new ArrayList<Rental>();
-		foundCustomer.setRentals(rentals);
+		foundCustomer.clearRentals();
 	}
 
 	private Customer findCustomer(String customerName) {
@@ -164,12 +163,10 @@ public class VRUI {
 		Rental rental = new Rental(foundVideo) ;
 		foundVideo.setRented(true);
 
-		List<Rental> customerRentals = foundCustomer.getRentals() ;
-		customerRentals.add(rental);
-		foundCustomer.setRentals(customerRentals);
+		foundCustomer.addRental(rental);
 	}
 
-	public void registerCustomer(String object) {
+	public void registerCustomer() {
 		System.out.println("Enter customer name: ");
 		String name = scanner.next();
 		Customer customer = new Customer(name);

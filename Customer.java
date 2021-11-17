@@ -1,4 +1,7 @@
+import com.sun.javafx.UnmodifiableArrayList;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -20,16 +23,11 @@ public class Customer {
 	}
 
 	public List<Rental> getRentals() {
-		return rentals;
-	}
-
-	public void setRentals(List<Rental> rentals) {
-		this.rentals = rentals;
+		return Collections.unmodifiableList(rentals);
 	}
 
 	public void addRental(Rental rental) {
 		rentals.add(rental);
-
 	}
 
 	public String getReport() {
@@ -90,5 +88,9 @@ public class Customer {
 			System.out.println("Congrat! You earned two free coupon");
 		}
 		return result ;
+	}
+
+	public void clearRentals() {
+		rentals.clear();
 	}
 }
